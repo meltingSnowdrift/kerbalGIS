@@ -34,8 +34,13 @@ void setup()
   sidePanelStack.add(elp);
   
   
+  /*float init = millis(); // Commented out section here is for measuring speed of loading.
+  println(init + "ms in when we started...");*/
   quack = new FieldFromSampleGrid(3600,1800);
   quack.populateSampleGridFromFile("samples.txt");
+  /*float latter = millis();
+  println(latter + "ms when we ended.");
+  println("Difference of " + (latter - init) + "ms.");*/
   
   //quack.sampleGrid[900][1800] = 100;
   //quack.sampleGrid[901][1800] = 200;

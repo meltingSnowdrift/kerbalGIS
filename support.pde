@@ -129,17 +129,13 @@ void processSampleFileLines(int instanceNumber, int startIndex, int endIndex)
   
   for(int i=startIndex; i<endIndex; i++)
   {
-    String temp = sampleLineListToProcess[i].replaceAll(",",""); //Remove the separating commas from the strings.
-    //println(temp); //debug
+    String tempArray[] = sampleLineListToProcess[i].split(", "); // Divide into the three sections
+
+    double latitude  = Double.parseDouble(tempArray[0]); // Save 'em
+    double longitude = Double.parseDouble(tempArray[1]);
+    double value     = Double.parseDouble(tempArray[2]);
     
-    Scanner sc = new Scanner(temp);
-    sc.useLocale(Locale.ENGLISH);
-    double latitude = sc.nextDouble();
-    double longitude = sc.nextDouble();
-    double value = sc.nextDouble();
-    sc.close();
-    
-    sampleListProcessingResults[instanceNumber].add(new ScalarSample(new GeographicCoordinates(latitude, longitude), value));
+    sampleListProcessingResults[instanceNumber].add(new ScalarSample(new GeographicCoordinates(latitude, longitude), value)); // Return
   }
   println("finished sample file line processing on lines "+startIndex+" to "+endIndex);
   sampleLineProcessingDone[instanceNumber] = true;
