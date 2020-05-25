@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 final DecimalFormat coordinatesDisplayDecimalFormat = new DecimalFormat("0.0000");
 
@@ -131,7 +132,8 @@ void processSampleFileLines(int instanceNumber, int startIndex, int endIndex)
     String temp = sampleLineListToProcess[i].replaceAll(",",""); //Remove the separating commas from the strings.
     //println(temp); //debug
     
-    Scanner sc = new Scanner(temp).useLocale(Locale.US);
+    Scanner sc = new Scanner(temp);
+    sc.useLocale(Locale.ENGLISH);
     double latitude = sc.nextDouble();
     double longitude = sc.nextDouble();
     double value = sc.nextDouble();
