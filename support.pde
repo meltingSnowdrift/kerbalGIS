@@ -131,7 +131,7 @@ void processSampleFileLines(int instanceNumber, int startIndex, int endIndex)
     String temp = sampleLineListToProcess[i].replaceAll(",",""); //Remove the separating commas from the strings.
     //println(temp); //debug
     
-    Scanner sc = new Scanner(temp);
+    Scanner sc = new Scanner(temp).useLocale(Locale.US);
     double latitude = sc.nextDouble();
     double longitude = sc.nextDouble();
     double value = sc.nextDouble();
